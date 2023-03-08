@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Contas</h1>
+    <p>Descrição da Conta: <input type="text" id="conta"></p>
+    <p>Valor a pagar R$: <input type="text" id="valor"></p>
+    <p><input type="button" value="Adicionar conta" onclick="adicionarConta()"></p>
+    <div id="lista"></div>
+    <script>
+        let listaContas = "";
+        let totalContas = 0;
+        let qtdContas = 0;
+        const adicionarConta = function(){
+            let descricaoConta = document.getElementById('conta').value;
+            let valorConta = Number(document.getElementById('valor').value);
+            totalContas += valorConta;
+            qtdContas++;
+            listaContas += `${descricaoConta} - ${valorConta} </br>`
+            document.getElementById('lista').innerHTML = `${listaContas}
+            -------------------------</br>
+            ${qtdContas} contas - Total R$: ${totalContas}`    
+        }
+    </script>
+</body>
+</html>

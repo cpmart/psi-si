@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Construindo um árvore</h1>
+    <p>Tamanho: <input type="text" id="tamanho"></p>
+    <p><input type="button" value="Plantar" onclick="natal()"></p>
+    <div id="solo"></div>
+    <script>
+        function natal() {
+            try {
+                let num = Number(document.getElementById('tamanho').value);
+                if(num < 5)
+                    throw('er1');
+                else if(num>15)
+                    throw('er2');
+                else if(isNaN(num))
+                    throw('er3');
+                let arvore = "";
+                for (let i = 1; i <= num; i++) {
+                    for (let j = 1; j <= i; j++) {
+                        arvore += "*";
+                    }
+                    arvore += "</br>";
+                }
+                arvore += "*</br>";
+                arvore += "*</br>";
+                document.getElementById('solo').innerHTML = arvore;
+            }
+            catch(e){
+                if(e=='er1')
+                    alert('Digite um valor maior que 4');
+                if(e=='er2')
+                    alert('Digite um valor menor que 16');
+                if(e=='er3')
+                    alert('Digite um valor inteiro');
+            }
+            finally{
+                alert("Valeu!");
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
