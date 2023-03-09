@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhando árvore de caracteres no canvas</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Construindo um árvore</h1>
+    <p>Tamanho: <input type="text" id="tamanho"></p>
+    <p><input type="button" value="Plantar" onclick="plantar()"></p>
+    <canvas id="solo"> </canvas>
+    <script>
+        const plantar = function () {
+            let num = Number(document.getElementById('tamanho').value);
+            let canvas = document.getElementById('solo');
+            let solo = canvas.getContext("2d");
+            solo.clearRect(0, 0, 400, 200);
+            let linha = 150;
+            let andaNaLinha, i;
+            solo.font = "bold 12px sans-serif";
+            for (i = 1; i <= num; i++) {
+                andaNaLinha = linha;
+                for (let j = 1; j <= i; j++) {
+                    solo.fillText("*", andaNaLinha, i * 10);
+                    andaNaLinha += 10;
+                }
+                linha -= 5;
+            }
+            solo.fillText("*", 150, i++ * 10);
+            solo.fillText("*", 150, i++ * 10);
+        }
+    </script>
+</body>
+
+</html>
